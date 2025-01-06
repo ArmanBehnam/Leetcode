@@ -1,5 +1,5 @@
 # Leetcode & Solutions
-[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/ArmanBehnam/)
+[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/armani16/)
 
 A collection of my solutions to various LeetCode problems, implemented in Python and Java.
 
@@ -24,7 +24,7 @@ To use this repository:
 ```bash
 git clone https://github.com/ArmanBehnam/Leetcode.git
 cd Leetcode
-
+```
 
 ## Contributing
 Feel free to open issues if you find any bugs or have suggestions for improvements.
