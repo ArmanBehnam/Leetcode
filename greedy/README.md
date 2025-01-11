@@ -1,38 +1,49 @@
-# Leetcode & Solutions
-[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/armani16/)
+# Greedy Problems
+This directory contains solutions to LeetCode problems that use greedy algorithms. These problems involve making locally optimal choices at each step to find a global optimum.
 
-A collection of my solutions to various LeetCode problems, implemented in Python and Java.
+## Problem List
+| # | Title | Difficulty | Key Concepts | My Solution |
+|---|-------|------------|--------------|-------------|
+| 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | Medium | Two Pointers, Greedy |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/11) |
+| 44 | [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/) | Hard | Greedy, DP |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/44) |
+| 45 | [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | Medium | Greedy, DP |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/45) |
+| 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | Medium | Greedy |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/55) |
+| 122 | [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) | Easy | Greedy |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/122) |
+| 134 | [Gas Station](https://leetcode.com/problems/gas-station/) | Medium | Greedy |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/134) |
+| 135 | [Candy](https://leetcode.com/problems/candy/) | Hard | Greedy |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/135) |
+| 179 | [Largest Number](https://leetcode.com/problems/largest-number/) | Medium | Greedy, Sorting |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/179) |
+| 253 | [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) | Medium | Greedy, Heap |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/253) |
+| 280 | [Wiggle Sort](https://leetcode.com/problems/wiggle-sort/) | Medium | Greedy, Array |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/greedy/280) |
 
-## Repository Structure
-Each problem is organized in its own directory with the following structure:
+## Common Patterns & Techniques
+1. Local Optimization
+   - Making best choice at each step
+   - Looking for local patterns
+
+2. Interval Scheduling
+   - Meeting room allocation
+   - Activity selection
+
+3. Optimization Problems
+   - Maximum/minimum value
+   - Optimal arrangement
+
+4. Two-Pass Solutions
+   - Forward and backward passes
+   - Multiple perspectives
+
+## My suggestions for Greedy Problems
+- Prove greedy choice property
+- Consider counter-examples
+- Think about why local optimal leads to global optimal
+- Look for sorting opportunities
+- Consider multiple passes over the data
+
+## Directory Structure
+Each problem directory contains:
 problemNumber/
 ├── q.txt          # Problem description
 ├── sol.py         # Python solution
 ├── sol.java       # Java solution
-├── my.py          # My initial Python attempt
-└── my.java        # My initial Java attempt
-
-## Problems Solved
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-| 1 | [Problem Title](link-to-leetcode-problem) | [Python](./1/sol.py), [Java](./1/sol.java) | Easy |
-| 2 | [Problem Title](link-to-leetcode-problem) | [Python](./2/sol.py), [Java](./2/sol.java) | Medium |
-<!-- Add more rows as you solve more problems -->
-
-## Local Development
-To use this repository:
-```bash
-git clone https://github.com/ArmanBehnam/Leetcode.git
-cd Leetcode
-```
-
-## Contributing
-Feel free to open issues if you find any bugs or have suggestions for improvements.
-
-## Contact
-
-GitHub: @ArmanBehnam
-Email: Armanbehnam1996@gmail.com
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+├── my.py          # My Python attempt
+└── my.java        # My Java attempt

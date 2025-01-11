@@ -1,38 +1,47 @@
-# Leetcode & Solutions
-[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/armani16/)
+# Stack Problems
+This directory contains solutions to LeetCode problems that utilize stack data structures. These problems typically involve parsing, tracking history, or managing nested structures.
 
-A collection of my solutions to various LeetCode problems, implemented in Python and Java.
+## Problem List
+| # | Title | Difficulty | Key Concepts | My Solution |
+|---|-------|------------|--------------|-------------|
+| 20 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | Easy | Stack |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/stack/20) |
+| 32 | [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) | Hard | Stack, DP |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/stack/32) |
+| 42 | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | Hard | Stack, Two Pointers |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/stack/42) |
+| 71 | [Simplify Path](https://leetcode.com/problems/simplify-path/) | Medium | Stack, String |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/stack/71) |
+| 84 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard | Stack |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/stack/84) |
+| 85 | [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) | Hard | Stack, DP |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/stack/85) |
+| 94 | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | Medium | Stack, Tree |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/stack/94) |
+| 114 | [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) | Medium | Stack, Tree |[My Code](https://github.com/ArmanBehnam/Leetcode/tree/main/stack/114) |
 
-## Repository Structure
-Each problem is organized in its own directory with the following structure:
+## Common Patterns & Techniques
+1. Parentheses Matching
+   - Balanced brackets
+   - Nested structures
+
+2. Monotonic Stack
+   - Next greater/smaller element
+   - Histogram problems
+
+3. Tree Traversal
+   - Iterative traversal
+   - Path tracking
+
+4. History Tracking
+   - Undo operations
+   - State management
+
+## My suggestions for Stack Problems
+- Consider stack properties (LIFO)
+- Think about edge cases (empty stack)
+- Look for nested structure patterns
+- Consider using multiple stacks
+- Watch for stack overflow scenarios
+
+## Directory Structure
+Each problem directory contains:
 problemNumber/
 ├── q.txt          # Problem description
 ├── sol.py         # Python solution
 ├── sol.java       # Java solution
-├── my.py          # My initial Python attempt
-└── my.java        # My initial Java attempt
-
-## Problems Solved
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-| 1 | [Problem Title](link-to-leetcode-problem) | [Python](./1/sol.py), [Java](./1/sol.java) | Easy |
-| 2 | [Problem Title](link-to-leetcode-problem) | [Python](./2/sol.py), [Java](./2/sol.java) | Medium |
-<!-- Add more rows as you solve more problems -->
-
-## Local Development
-To use this repository:
-```bash
-git clone https://github.com/ArmanBehnam/Leetcode.git
-cd Leetcode
-```
-
-## Contributing
-Feel free to open issues if you find any bugs or have suggestions for improvements.
-
-## Contact
-
-GitHub: @ArmanBehnam
-Email: Armanbehnam1996@gmail.com
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+├── my.py          # My Python attempt
+└── my.java        # My Java attempt
