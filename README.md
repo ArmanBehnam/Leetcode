@@ -96,10 +96,7 @@ cd Leetcode
 ## Contributing
 Feel free to open issues if you find any bugs or have suggestions for improvements.
 
-## Contact
+## [My Website](https://armanbehnam.github.io/)
 
-GitHub: @ArmanBehnam
-Email: Armanbehnam1996@gmail.com
-
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
