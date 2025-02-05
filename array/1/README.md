@@ -1,4 +1,3 @@
-```markdown
 # Two Sum (LeetCode #1)
 [![LeetCode Problem](https://img.shields.io/badge/LeetCode-1.%20Two%20Sum-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/two-sum/)
 
@@ -6,7 +5,7 @@
 Given an array of integers `nums` and an integer `target`, return indices of two numbers that add up to `target`. Each input has exactly one solution, and you cannot use the same element twice.
 
 ### Examples
-```
+```bash
 Input: nums = [2,7,11,15], target = 9
 Output: [0,1]  # nums[0] + nums[1] = 2 + 7 = 9
 ```
@@ -24,7 +23,7 @@ Output: [0,1]  # nums[0] + nums[1] = 2 + 7 = 9
 Store previously seen numbers in a hash map for O(1) lookup of complements.
 
 ## Directory Structure
-```
+```bash
 .
 ├── q.txt          # Problem description
 ├── sol.py         # Python solution
