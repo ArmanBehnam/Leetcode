@@ -1,38 +1,47 @@
-# Leetcode & Solutions
-[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/armani16/)
+```markdown
+# Two Sum (LeetCode #1)
+[![LeetCode Problem](https://img.shields.io/badge/LeetCode-1.%20Two%20Sum-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/two-sum/)
 
-A collection of my solutions to various LeetCode problems, implemented in Python and Java.
+## Problem Description
+Given an array of integers `nums` and an integer `target`, return indices of two numbers that add up to `target`. Each input has exactly one solution, and you cannot use the same element twice.
 
-## Repository Structure
-Each problem is organized in its own directory with the following structure:
-problemNumber/
+### Examples
+```
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]  # nums[0] + nums[1] = 2 + 7 = 9
+```
+
+## Solutions
+- [Python Solution](./sol.py) - O(n) using dictionary 
+- [Java Solution](./sol.java) - O(n) using HashMap
+- [C Solution](./sol.c) - O(n²) using array iteration
+
+### Time Complexity
+- Python/Java: O(n) time, O(n) space
+- C: O(n²) time, O(1) space
+
+### Approach
+Store previously seen numbers in a hash map for O(1) lookup of complements.
+
+## Directory Structure
+```
+.
 ├── q.txt          # Problem description
 ├── sol.py         # Python solution
 ├── sol.java       # Java solution
-├── my.py          # My initial Python attempt
-└── my.java        # My initial Java attempt
-
-## Problems Solved
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-| 1 | [Problem Title](link-to-leetcode-problem) | [Python](./1/sol.py), [Java](./1/sol.java) | Easy |
-| 2 | [Problem Title](link-to-leetcode-problem) | [Python](./2/sol.py), [Java](./2/sol.java) | Medium |
-<!-- Add more rows as you solve more problems -->
-
-## Local Development
-To use this repository:
-```bash
-git clone https://github.com/ArmanBehnam/Leetcode.git
-cd Leetcode
+├── sol.c          # C solution 
+├── my.py          # My Python solution
+└── my.java        # My Java solution
 ```
 
-## Contributing
-Feel free to open issues if you find any bugs or have suggestions for improvements.
+## Test Cases
+All solutions tested with:
+- `[2,7,11,15]`, target = 9
+- `[3,2,4]`, target = 6
+- `[3,3]`, target = 6
 
-## Contact
-
-GitHub: @ArmanBehnam
-Email: Armanbehnam1996@gmail.com
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Constraints
+- 2 ≤ nums.length ≤ 104
+- -109 ≤ nums[i] ≤ 109
+- -109 ≤ target ≤ 109
+- Exactly one valid solution exists
