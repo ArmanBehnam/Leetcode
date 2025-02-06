@@ -26,9 +26,9 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
         int partition2 = half - partition1;
         
         // Get left and right elements for both arrays
-        double left1 = (partition1 == 0) ? -DBL_MAX : nums1[partition1 - 1];
+        double left1 = (partition1 == 0) ? (-1.0 * DBL_MAX) : nums1[partition1 - 1];
         double right1 = (partition1 == m) ? DBL_MAX : nums1[partition1];
-        double left2 = (partition2 == 0) ? -DBL_MAX : nums2[partition2 - 1];
+        double left2 = (partition2 == 0) ? (-1.0 * DBL_MAX) : nums2[partition2 - 1];
         double right2 = (partition2 == n) ? DBL_MAX : nums2[partition2];
         
         if (left1 <= right2 && left2 <= right1) {
