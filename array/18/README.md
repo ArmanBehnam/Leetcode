@@ -1,38 +1,69 @@
-# Leetcode & Solutions
-[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/armani16/)
+# 4Sum (LeetCode #18)
+[![LeetCode Problem](https://img.shields.io/badge/LeetCode-18.%204Sum-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/4sum/)
 
-A collection of my solutions to various LeetCode problems, implemented in Python and Java.
+## Problem Description
+Given an array `nums` of `n` integers and an integer `target`, return all unique quadruplets `[nums[a], nums[b], nums[c], nums[d]]` such that:
+- `0 <= a, b, c, d < n`
+- `a`, `b`, `c`, and `d` are **distinct**
+- `nums[a] + nums[b] + nums[c] + nums[d] == target`
 
-## Repository Structure
-Each problem is organized in its own directory with the following structure:
-problemNumber/
-├── q.txt          # Problem description
-├── sol.py         # Python solution
-├── sol.java       # Java solution
-├── my.py          # My initial Python attempt
-└── my.java        # My initial Java attempt
+You may return the answer in **any order**.
 
-## Problems Solved
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-| 1 | [Problem Title](link-to-leetcode-problem) | [Python](./1/sol.py), [Java](./1/sol.java) | Easy |
-| 2 | [Problem Title](link-to-leetcode-problem) | [Python](./2/sol.py), [Java](./2/sol.java) | Medium |
-<!-- Add more rows as you solve more problems -->
-
-## Local Development
-To use this repository:
+### Examples
 ```bash
-git clone https://github.com/ArmanBehnam/Leetcode.git
-cd Leetcode
+Input: nums = [1,0,-1,0,-2,2], target = 0
+Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+
+Input: nums = [2,2,2,2,2], target = 8
+Output: [[2,2,2,2]]
 ```
 
-## Contributing
-Feel free to open issues if you find any bugs or have suggestions for improvements.
+## Solutions
+- [Python Solution](./sol.py) - O(n³) using sorting and two pointers
+- [Java Solution](./Solution.java) - O(n³) using sorting and two pointers
+- [C Solution](./solution.c) - O(n³) using sorting and two pointers
 
-## Contact
 
-GitHub: @ArmanBehnam
-Email: Armanbehnam1996@gmail.com
+### Approach
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+1. Sort the array first
+2. Use two nested loops to fix first two numbers
+3. Use two pointers for the remaining two numbers
+4. Skip duplicates at each level to avoid duplicate quadruplets
+5. Handle integer overflow using long/long long types
+
+## Directory Structure
+```bash
+.
+├── README.md      # This file
+├── my.py         # Python solution class
+├── sol.py        # Python test cases
+├── Solution.java  # Java solution class
+├── Main.java     # Java test cases
+├── sol.c         # C solution implementation
+└── main.c        # C test cases
+```
+
+## Test Cases
+All solutions tested with:
+
+- `[1,0,-1,0,-2,2], target = 0` → `[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]`
+- `[2,2,2,2,2], target = 8` → `[[2,2,2,2]]`
+- `[1,2,3,4], target = 100` → `[]`
+- Edge cases: empty array, array with less than 4 elements
+- Overflow cases: large numbers that could cause integer overflow
+
+## Performance
+- Python: ~200ms
+- Java: ~15ms
+- C: ~20ms
+
+## Notes
+
+- The problem is an extension of 3Sum problem
+- Solutions must handle duplicate quadruplets
+- Integer overflow needs careful handling
+- Memory management is crucial in C implementation
+- Proper sorting and skipping duplicates improves efficiency
+- Early termination optimizations possible but not implemented for clarity
+- Dynamic memory allocation in C requires careful memory cleanup

@@ -1,38 +1,52 @@
-# Leetcode & Solutions
-[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/armani16/)
+# Container With Most Water (LeetCode #11)
+[![LeetCode Problem](https://img.shields.io/badge/LeetCode-11.%20Container%20With%20Most%20Water-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/container-with-most-water/)
 
-A collection of my solutions to various LeetCode problems, implemented in Python and Java.
+## Problem Description
+Given an array `height` of `n` integers where each integer represents the height of a vertical line, find two lines that together with the x-axis form a container that holds the most water. Return the maximum amount of water the container can store.
 
-## Repository Structure
-Each problem is organized in its own directory with the following structure:
-problemNumber/
-├── q.txt          # Problem description
-├── sol.py         # Python solution
-├── sol.java       # Java solution
-├── my.py          # My initial Python attempt
-└── my.java        # My initial Java attempt
-
-## Problems Solved
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-| 1 | [Problem Title](link-to-leetcode-problem) | [Python](./1/sol.py), [Java](./1/sol.java) | Easy |
-| 2 | [Problem Title](link-to-leetcode-problem) | [Python](./2/sol.py), [Java](./2/sol.java) | Medium |
-<!-- Add more rows as you solve more problems -->
-
-## Local Development
-To use this repository:
+### Examples
 ```bash
-git clone https://github.com/ArmanBehnam/Leetcode.git
-cd Leetcode
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Explanation: The max area is formed between lines at index 1 and index 8 (height: 8 and 7)
 ```
 
-## Contributing
-Feel free to open issues if you find any bugs or have suggestions for improvements.
+## Solutions
+- [Python Solution](./sol.py) - O(n) using two pointers
+- [Java Solution](./Solution.java) - O(n) using two pointers
+- [C Solution](./solution.c) - O(n) using two pointers
 
-## Contact
+### Time Complexity
+- All solutions: O(n) time, O(1) space
+- Where n is the length of the input array
 
-GitHub: @ArmanBehnam
-Email: Armanbehnam1996@gmail.com
+### Approach
+Use two pointers starting from both ends of the array:
+1. Calculate area between current pointers
+2. Move the pointer pointing to the shorter line inward
+3. Keep track of maximum area seen
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Directory Structure
+```bash
+.
+├── README.md      # This file
+├── my.py          # Python solution class
+├── sol.py         # Python test cases
+├── Solution.java  # Java solution class
+├── Main.java      # Java test cases
+├── solution.c     # C solution implementation
+└── main.c         # C test cases
+```
+
+## Test Cases
+All solutions tested with:
+- `[1,8,6,2,5,4,8,3,7]` → 49
+- `[1,1]` → 1
+- `[1,2,3,4,5]` → 6
+- `[5,4,3,2,1]` → 6
+- `[4,4,4,4]` → 12
+
+## Constraints
+- n == height.length
+- 2 ≤ n ≤ 105
+- 0 ≤ height[i] ≤ 104
