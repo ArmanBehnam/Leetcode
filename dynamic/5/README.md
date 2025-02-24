@@ -1,38 +1,78 @@
-# Leetcode & Solutions
-[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/armani16/)
+# Longest Palindromic Substring (LeetCode #5)
+[![LeetCode Problem](https://img.shields.io/badge/LeetCode-5.%20Longest%20Palindromic%20Substring-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/longest-palindromic-substring/)
 
-A collection of my solutions to various LeetCode problems, implemented in Python and Java.
+## Problem Description
+Given a string `s`, return the longest palindromic substring in `s`.
+A string is palindromic if it reads the same forward and backward.
 
-## Repository Structure
-Each problem is organized in its own directory with the following structure:
-problemNumber/
-├── q.txt          # Problem description
-├── sol.py         # Python solution
-├── sol.java       # Java solution
-├── my.py          # My initial Python attempt
-└── my.java        # My initial Java attempt
-
-## Problems Solved
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-| 1 | [Problem Title](link-to-leetcode-problem) | [Python](./1/sol.py), [Java](./1/sol.java) | Easy |
-| 2 | [Problem Title](link-to-leetcode-problem) | [Python](./2/sol.py), [Java](./2/sol.java) | Medium |
-<!-- Add more rows as you solve more problems -->
-
-## Local Development
-To use this repository:
+### Examples
 ```bash
-git clone https://github.com/ArmanBehnam/Leetcode.git
-cd Leetcode
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+
+Input: s = "cbbd"
+Output: "bb"
 ```
 
-## Contributing
-Feel free to open issues if you find any bugs or have suggestions for improvements.
+## Solutions
+- [Python Solution](./sol.py) - O(n) using Manacher's Algorithm
+- [Java Solution](./Solution.java) - O(n) using Manacher's Algorithm
+- [C Solution](./solution.c) - O(n) using Manacher's Algorithm with manual memory management
 
-## Contact
 
-GitHub: @ArmanBehnam
-Email: Armanbehnam1996@gmail.com
+### Approach
+We use Manacher's Algorithm which:
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+1. Transforms the input string by adding special characters
+
+    -   Insert '#' between each character
+    -   Add boundary markers ('^' and '$')
+    -   Example: "babad" → "^#b#a#b#a#d#$"
+
+
+2. Uses dynamic expansion around centers:
+
+    -   Maintains current center and right boundary
+    -   Uses mirror property to skip unnecessary comparisons
+    -   Tracks maximum palindrome length and center
+
+
+3. Key optimizations:
+
+    -   Reuses previously computed palindrome lengths
+    -   Avoids redundant character comparisons
+    -   Single pass through the string
+
+## Directory Structure
+```bash
+.
+├── README.md      # This file
+├── my.py          # Python solution class
+├── sol.py         # Python test cases
+├── Solution.java  # Java solution class
+├── Main.java      # Java test cases
+├── solution.c     # C solution implementation
+└── main.c         # C test cases
+```
+
+## Performance:
+
+- Time Complexity: O(n)
+- Space Complexity: O(n)
+
+## Constraints
+- `1` <= `s.length` <= `1000`
+- `s` consist of only digits and English letters
+
+
+## Performance Comparison
+Initial DP Solution:
+
+- Runtime: 2402ms (Beats 27.11%)
+- Memory: 20.13MB (Beats 11.89%)
+
+Optimized Manacher's Algorithm:
+
+- Runtime: ~100ms (Beats >90%)
+- Memory: ~14MB (Beats >80%)
