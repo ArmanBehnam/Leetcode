@@ -1,50 +1,91 @@
-# Trapping Rain Water (LeetCode #42)
-[![LeetCode Problem](https://img.shields.io/badge/LeetCode-42.%20Trapping%20Rain%20Water-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/trapping-rain-water/)
+# Merge k Sorted Lists (LeetCode #23)
+[![LeetCode Problem](https://img.shields.io/badge/LeetCode-23.%20Merge%20k%20Sorted%20Lists-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/merge-k-sorted-lists/)
 
 ## Problem Description
+
+You are given an array of `k` linked-lists `lists`, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.
 
 Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.
 
 ### Examples
 ```bash
-Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
-Output: 6
-Explanation: The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1].
-Input: height = [4,2,0,3,2,5]
-Output: 9
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+Explanation: The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+merging them into one sorted list:
+1->1->2->3->4->4->5->6
+Input: lists = []
+Output: []
+Input: lists = [[]]
+Output: []
 ```
 
 ## Solutions
-- [Python Solution](./solution.py) - Optimized two-pointer approach
-- [Java Solution](./Solution.java) - Optimized two-pointer approach
-- [C Solution](./solution.c) - Optimized two-pointer approach
+- [Python Solution](./solution.py) - Min-heap approach
+- [Java Solution](./Solution.java) - Priority Queue approach
+- [C Solution](./solution.c) - Custom min-heap implementation
 
 ### Approach
 
-We use an optimized two-pointer approach:
+1. Min Heap / Priority Queue Approach (Python & Java)
+Both Python and Java solutions use a min-heap data structure (PriorityQueue in Java):
 
-1. Initialize two pointers at the start and end of the array
-2. Track maximum heights seen from both left and right
-3. Skip initial zeros for efficiency 
-4. Process the smaller heights first:
-   - If current height < max height on that side, water is trapped
-   - Otherwise, update the max height
-5. Move pointers inward until they meet
+- Create a min-heap/priority queue to track the smallest node across all lists
+- Initially add the head node from each non-empty list to the heap
+- While the heap is not empty:
 
-This approach efficiently calculates the trapped water in a single pass through the array.
+   - Extract the minimum node and add to result list
+   - If the extracted node has a next node, add it to the heap
 
-## Performance:
 
-- **Time Complexity**: O(n) - single pass through the array
-- **Space Complexity**: O(1) - constant extra space
+- Return the merged list
 
-## Optimizations
-1. Skipping initial zeros
-2. Direct comparison instead of using min function
-3. Pre-calculating maximum heights
-4. Efficient pointer movement based on relative heights
+This approach efficiently finds the next smallest node in logarithmic time.
+
+2. Custom Min Heap Implementation (C)
+
+The C solution implements a custom min-heap:
+
+   - Create a min-heap data structure with operations for insertion and extraction
+   - Add the first node from each list to the heap
+   - Extract the minimum element, add to result, and insert the next node from that list
+   - Repeat until heap is empty
+
+
+
+## Performance
+For all implementations:
+
+- Time Complexity: O(N log k)
+
+   - N is total number of nodes across all lists
+   - k is the number of lists
+   - Each heap operation takes O(log k) time
+
+
+- Space Complexity: O(k)
+
+   - The heap stores at most k nodes at any time
+
+
+
+## Test Cases
+Each solution includes test cases for:
+
+- Example with multiple non-empty lists
+- Empty input list (`[]`)
+- Input with a single empty list (`[[]]`)
 
 ## Constraints
-- `n == height.length`
-- `1 <= n <= 2 * 10^4`
-- `0 <= height[i] <= 10^5`
+
+- `k == lists.length`
+- `0 <= k <= 10^4`
+- `0 <= lists[i].length <= 500`
+- `-10^4 <= lists[i][j] <= 10^4`
+- `lists[i]` is sorted in ascending order
+- The sum of `lists[i].length` will not exceed `10^4`

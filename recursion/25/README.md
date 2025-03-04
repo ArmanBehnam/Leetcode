@@ -1,17 +1,18 @@
-# Trapping Rain Water (LeetCode #42)
-[![LeetCode Problem](https://img.shields.io/badge/LeetCode-42.%20Trapping%20Rain%20Water-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/trapping-rain-water/)
+# Reverse Nodes in k-Group (LeetCode #25)
+[![LeetCode Problem](https://img.shields.io/badge/LeetCode-25.%20Reverse%20Nodes%20in%20k--Group-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/reverse-nodes-in-k-group/)
 
 ## Problem Description
 
-Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.
+Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
+`k` is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of `k` then left-out nodes, in the end, should remain as it is.
+You may not alter the values in the list's nodes, only nodes themselves may be changed.
 
 ### Examples
 ```bash
-Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
-Output: 6
-Explanation: The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1].
-Input: height = [4,2,0,3,2,5]
-Output: 9
+Input: head = [1,2,3,4,5], k = 2
+Output: [2,1,4,3,5]
+Input: head = [1,2,3,4,5], k = 3
+Output: [3,2,1,4,5]
 ```
 
 ## Solutions
@@ -21,30 +22,95 @@ Output: 9
 
 ### Approach
 
-We use an optimized two-pointer approach:
+All three implementations use a similar optimized iterative approach:
 
-1. Initialize two pointers at the start and end of the array
-2. Track maximum heights seen from both left and right
-3. Skip initial zeros for efficiency 
-4. Process the smaller heights first:
-   - If current height < max height on that side, water is trapped
-   - Otherwise, update the max height
-5. Move pointers inward until they meet
+1. Initialization:
 
-This approach efficiently calculates the trapped water in a single pass through the array.
+   - Create a dummy node to simplify edge cases
+   - Count total nodes once at the beginning
+   - Track the end of the previous group
 
-## Performance:
+2. Group Processing Loop:
 
-- **Time Complexity**: O(n) - single pass through the array
-- **Space Complexity**: O(1) - constant extra space
+   - Process only complete k-groups (count >= k)
+   - For each group:
 
-## Optimizations
-1. Skipping initial zeros
-2. Direct comparison instead of using min function
-3. Pre-calculating maximum heights
-4. Efficient pointer movement based on relative heights
+      - Save the start of the current group (will be the end after reversal)
+      - Find the start of the next group
+      - Reverse the k nodes in the current group
+      - Connect the previous group end to the new group start
+      - Connect the new group end to the next group start
+      - Update pointers for the next iteration
+      - Decrement the count by k
+
+
+3. Edge Case Handling:
+
+   - Early return for empty lists or k=1 (no reversal needed)
+   - Nodes at the end that don't form a complete group remain unchanged
+
+
+## Visual Example (k=2)
+
+Initial list:
+```bash
+dummy -> 1 -> 2 -> 3 -> 4 -> 5
+         |    |    |    |    |
+       group1  group2  group3
+```
+
+After processing:
+```bash
+dummy -> 2 -> 1 -> 4 -> 3 -> 5
+         |    |    |    |    |
+       group1  group2  group3
+```
+
+## Performance Optimizations
+
+1. Upfront Node Counting:
+
+   - Count all nodes once at the beginning
+   - Track remaining nodes to process
+
+
+2. Efficient Pointer Management:
+
+   - Minimize temporary variables
+   - Combine pointer updates where possible
+   - Use direct pointer reassignment
+
+
+3. Early Termination:
+
+   - Return immediately for k=1
+   - Skip unnecessary validation checks
+
+
+4. Loop Optimization:
+
+   - Batch pointer movements
+   - Reduce redundant checks
+
+
+
+## Time & Space Complexity
+
+- Time Complexity: O(n)
+
+   - Each node is processed at most twice
+   - Counting: O(n)
+   - Reversal: O(n)
+
+
+- Space Complexity: O(1)
+
+   - Only constant extra space is used regardless of input size
+
+
 
 ## Constraints
-- `n == height.length`
-- `1 <= n <= 2 * 10^4`
-- `0 <= height[i] <= 10^5`
+
+- The number of nodes in the list is n
+- 1 <= k <= n <= 5000
+- 0 <= Node.val <= 1000
