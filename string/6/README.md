@@ -1,38 +1,67 @@
-# Leetcode & Solutions
-[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/armani16/)
+# ZigZag Conversion (LeetCode #6)
+[![LeetCode Problem](https://img.shields.io/badge/LeetCode-6.%20ZigZag%20Conversion-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/zigzag-conversion/)
 
-A collection of my solutions to various LeetCode problems, implemented in Python and Java.
+## Problem Description
 
-## Repository Structure
-Each problem is organized in its own directory with the following structure:
-problemNumber/
-├── q.txt          # Problem description
-├── sol.py         # Python solution
-├── sol.java       # Java solution
-├── my.py          # My initial Python attempt
-└── my.java        # My initial Java attempt
+The string `"PAYPALISHIRING"` is written in a zigzag pattern on a given number of rows like this:
 
-## Problems Solved
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-| 1 | [Problem Title](link-to-leetcode-problem) | [Python](./1/sol.py), [Java](./1/sol.java) | Easy |
-| 2 | [Problem Title](link-to-leetcode-problem) | [Python](./2/sol.py), [Java](./2/sol.java) | Medium |
-<!-- Add more rows as you solve more problems -->
+P   A   H   N
+A P L S I I G
+Y   I   R
 
-## Local Development
-To use this repository:
+And then read line by line: `"PAHNAPLSIIGYIR"`
+
+Write the code that will take a string and make this conversion given a number of rows.
+
+### Examples
 ```bash
-git clone https://github.com/ArmanBehnam/Leetcode.git
-cd Leetcode
+Input: s = "PAYPALISHIRING", numRows = 3
+Output: "PAHNAPLSIIGYIR"
+Input: s = "PAYPALISHIRING", numRows = 4
+Output: "PINALSIGYAHRPI"
+Explanation:
+P     I    N
+A   L S  I G
+Y A   H R
+P     I
+Input: s = "A", numRows = 1
+Output: "A"
 ```
+## Solutions
+- [Python Solution](./solution.py) - Row-based approach with direction tracking
+- [Java Solution](./Solution.java) - StringBuilder implementation
+- [C Solution](./solution.c) - Dynamic memory allocation approach
 
-## Contributing
-Feel free to open issues if you find any bugs or have suggestions for improvements.
+### Approach
 
-## Contact
+The solution uses a row-by-row approach:
 
-GitHub: @ArmanBehnam
-Email: Armanbehnam1996@gmail.com
+1. Create an array of strings (or StringBuilders in Java), one for each row of the zigzag pattern
+2. Traverse the input string character by character
+3. Keep track of the current row and direction of movement (up or down)
+4. Add each character to its corresponding row
+5. Change direction when reaching the top or bottom row
+6. Combine all rows to form the final result
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This approach simulates the zigzag pattern efficiently without requiring a large 2D grid.
+
+## Performance
+
+- Time Complexity: O(n)
+  - Where n is the length of the input string
+  - We traverse each character in the string exactly once
+
+- Space Complexity: O(n)
+  - We need to store all characters in the row arrays before joining them
+
+## Test Cases
+Each solution includes test cases for:
+- Standard zigzag pattern (Examples 1 and 2)
+- Edge case with single character (Example 3)
+- Edge case with single row
+
+## Constraints
+
+- `1 <= s.length <= 1000`
+- `s` consists of English letters (lower-case and upper-case), `,` and `.`
+- `1 <= numRows <= 1000`

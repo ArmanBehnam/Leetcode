@@ -1,38 +1,52 @@
-# Leetcode & Solutions
-[![LeetCode user ArmanBehnam](https://img.shields.io/badge/LeetCode-ArmanBehnam-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/armani16/)
+# Longest Substring Without Repeating Characters (LeetCode #3)
+[![LeetCode Problem](https://img.shields.io/badge/LeetCode-3.%20Longest%20Substring%20Without%20Repeating%20Characters-FFA116?style=for-the-badge&logo=leetcode)](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
-A collection of my solutions to various LeetCode problems, implemented in Python and Java.
+## Problem Description
 
-## Repository Structure
-Each problem is organized in its own directory with the following structure:
-problemNumber/
-├── q.txt          # Problem description
-├── sol.py         # Python solution
-├── sol.java       # Java solution
-├── my.py          # My initial Python attempt
-└── my.java        # My initial Java attempt
+Given a string `s`, find the length of the **longest substring** without duplicate characters.
 
-## Problems Solved
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-| 1 | [Problem Title](link-to-leetcode-problem) | [Python](./1/sol.py), [Java](./1/sol.java) | Easy |
-| 2 | [Problem Title](link-to-leetcode-problem) | [Python](./2/sol.py), [Java](./2/sol.java) | Medium |
-<!-- Add more rows as you solve more problems -->
-
-## Local Development
-To use this repository:
+### Examples
 ```bash
-git clone https://github.com/ArmanBehnam/Leetcode.git
-cd Leetcode
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 ```
+## Solutions
+- [Python Solution](./sol.py) - Sliding window approach
+- [Java Solution](./sol.java) - Sliding window with character index tracking
+- [C Solution](./sol.c) - Sliding window implementation
 
-## Contributing
-Feel free to open issues if you find any bugs or have suggestions for improvements.
 
-## Contact
+## Performance
+- Time Complexity: O(n)
 
-GitHub: @ArmanBehnam
-Email: Armanbehnam1996@gmail.com
+    - Where n is the length of the input string
+    - We scan through the string exactly once
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+- Space Complexity: O(min(m, n))
+
+    - Where m is the size of the character set (constant for ASCII)
+    - And n is the length of the string
+
+## Test Cases
+Each solution includes test cases for:
+
+- String with repeating patterns ("abcabcbb")
+- String with all identical characters ("bbbbb")
+- String with non-consecutive repeating characters ("pwwkew")
+- Edge cases (empty string, single character)
+
+## Constraints
+
+- `0 <= s.length <= 5 * 10^4`
+- `s` consists of English letters, digits, symbols and spaces.
